@@ -9,6 +9,11 @@ export interface todoItemsProps {
   all: boolean;
 }
 
+type ItemType = {
+  status: boolean;
+  inputText: string;
+};
+
 //styled components
 const Div = styled.div`
   display: flex;
@@ -47,7 +52,9 @@ const TodoItems: React.FC<todoItemsProps> = ({
   }
 
   if (finish === true) {
-    let newItems = items.filter((item: any) => item.status === false);
+    let newItems = items.filter((item: any) => {
+      return item.status === false;
+    });
     return (
       <React.Fragment>
         <h1 style={{ color: "red" }}>Closed</h1>
@@ -58,7 +65,6 @@ const TodoItems: React.FC<todoItemsProps> = ({
 
   if (opened === true) {
     let newItems = items.filter((item: any) => {
-      console.log("check it out", item);
       return item.status === true;
     });
 
@@ -74,7 +80,7 @@ const TodoItems: React.FC<todoItemsProps> = ({
     return allItems.map((item: Item, index: number) => {
       if (item.status === true) {
         return (
-          <Div onClick={(e) => onClickChangeStatus(index)} key={index}>
+          <Div onClick={() => onClickChangeStatus(index)} key={index}>
             <span>[ ]</span>
             <p>{item.inputText}</p>
           </Div>
@@ -82,7 +88,7 @@ const TodoItems: React.FC<todoItemsProps> = ({
       }
       if (item.status === false) {
         return (
-          <Div onClick={(e) => onClickChangeStatus(index)} key={index}>
+          <Div onClick={() => onClickChangeStatus(index)} key={index}>
             <span>&#10004;</span> <Pchecked>{item.inputText}</Pchecked>
           </Div>
         );

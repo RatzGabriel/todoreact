@@ -23,7 +23,7 @@ const WrapperDiv = styled.div`
 
 const App: FunctionComponent = (): ReactElement => {
   const [items, setItems] = useState<any>([]);
-  const [inputText, setInputText] = useState<any>([]);
+  const [inputText, setInputText] = useState<string>("");
   const [finish, setFinish] = useState<boolean>(false);
   const [opened, setOpened] = useState<boolean>(false);
   const [all, setAll] = useState<boolean>(true);
@@ -67,8 +67,8 @@ const App: FunctionComponent = (): ReactElement => {
     }
   };
 
-  const onInputChange = (e: any) => {
-    setInputText(e.target.value);
+  const onInputChange = (ele: string) => {
+    setInputText(ele);
     return null;
   };
 
@@ -106,7 +106,7 @@ const App: FunctionComponent = (): ReactElement => {
         <form onSubmit={onFormSubmit}>
           <label htmlFor=""></label>
           <input
-            onChange={(e) => onInputChange(e)}
+            onChange={(e) => onInputChange(e.target.value)}
             type="text"
             name="itemText"
             value={inputText}
