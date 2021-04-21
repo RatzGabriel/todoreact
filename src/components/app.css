@@ -1,0 +1,16 @@
+* {
+  background-color: #294e94;
+  color: white;
+}
+
+input {
+  padding: 1em;
+  border: 3px solid white;
+  font-size: large;
+  text-align: center;
+}
+
+button {
+  padding: 1em;
+  margin: 1em;
+}
