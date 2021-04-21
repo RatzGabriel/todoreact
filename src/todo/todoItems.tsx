@@ -9,11 +9,6 @@ export interface todoItemsProps {
   all: boolean;
 }
 
-type ItemType = {
-  status: boolean;
-  inputText: string;
-};
-
 //styled components
 const Div = styled.div`
   display: flex;
