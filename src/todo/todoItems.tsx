@@ -74,17 +74,16 @@ const TodoItems: React.FC<todoItemsProps> = ({
     return allItems.map((item: Item, index: number) => {
       if (item.status === true) {
         return (
-          <Div key={index}>
-            <span onClick={(e) => onClickChangeStatus(index)}>[ ]</span>
+          <Div onClick={(e) => onClickChangeStatus(index)} key={index}>
+            <span>[ ]</span>
             <p>{item.inputText}</p>
           </Div>
         );
       }
       if (item.status === false) {
         return (
-          <Div key={index}>
-            <span onClick={(e) => onClickChangeStatus(index)}>&#10004;</span>{" "}
-            <Pchecked>{item.inputText}</Pchecked>
+          <Div onClick={(e) => onClickChangeStatus(index)} key={index}>
+            <span>&#10004;</span> <Pchecked>{item.inputText}</Pchecked>
           </Div>
         );
       }
