@@ -48,13 +48,8 @@ const TodoItems: React.FC<todoItemsProps> = ({
 
   if (finish === true) {
     let newItems: Item[] = items.filter((item: Item) => {
-      console.log("items", items);
-      console.log("item", item);
-
       return item.status === false;
     });
-    console.log("newitems", newItems);
-
     return (
       <React.Fragment>
         <h1 style={{ color: "red" }}>Closed</h1>
@@ -77,7 +72,6 @@ const TodoItems: React.FC<todoItemsProps> = ({
   }
 
   function returnItem(allItems: Item[]) {
-    console.log("allizenms", allItems);
     return allItems.map((item: Item, index: number) => {
       if (item.status === true) {
         return (
