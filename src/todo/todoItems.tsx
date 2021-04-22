@@ -2,7 +2,7 @@ import React, { ReactElement } from "react";
 import styled from "styled-components";
 
 export interface todoItemsProps {
-  items: [][];
+  items: [];
   onClickChangeStatus: Function;
   finish: boolean;
   opened: boolean;
@@ -47,9 +47,14 @@ const TodoItems: React.FC<todoItemsProps> = ({
   }
 
   if (finish === true) {
-    let newItems = items.filter((item: any) => {
+    let newItems: Item[] = items.filter((item: Item) => {
+      console.log("items", items);
+      console.log("item", item);
+
       return item.status === false;
     });
+    console.log("newitems", newItems);
+
     return (
       <React.Fragment>
         <h1 style={{ color: "red" }}>Closed</h1>
@@ -59,7 +64,7 @@ const TodoItems: React.FC<todoItemsProps> = ({
   }
 
   if (opened === true) {
-    let newItems = items.filter((item: any) => {
+    let newItems = items.filter((item: Item) => {
       return item.status === true;
     });
 
@@ -71,7 +76,8 @@ const TodoItems: React.FC<todoItemsProps> = ({
     );
   }
 
-  function returnItem(allItems: any) {
+  function returnItem(allItems: Item[]) {
+    console.log("allizenms", allItems);
     return allItems.map((item: Item, index: number) => {
       if (item.status === true) {
         return (
